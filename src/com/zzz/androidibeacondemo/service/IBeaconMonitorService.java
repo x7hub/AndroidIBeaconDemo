@@ -1,7 +1,5 @@
 package com.zzz.androidibeacondemo.service;
 
-import java.util.List;
-
 import android.annotation.TargetApi;
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
@@ -28,7 +26,7 @@ import com.zzz.androidibeacondemo.ibeacon.IBeacon;
 public class IBeaconMonitorService extends Service {
 	private static final String TAG = "IBeaconMonitorService";
 
-	private static final long SCAN_TIME = 10000;
+	private static final long SCAN_TIME = 20000;
 
 	private BluetoothAdapter bluetoothAdapter;
 
@@ -71,7 +69,11 @@ public class IBeaconMonitorService extends Service {
 
 		@Override
 		public void onLeScan(BluetoothDevice device, int rssi, byte[] scanRecord) {
-			Log.i(TAG, scanRecord.toString());
+			Log.v(TAG, "onLeScan");
+			Log.i(TAG, "device - " + device.getAddress());
+			Log.i(TAG, "rssi - " + rssi);
+			IBeacon ibeacon = new IBeacon();
+			ibeacon.readFromArray(scanRecord);
 		}
 
 	};
@@ -107,12 +109,12 @@ public class IBeaconMonitorService extends Service {
 	/**
 	 * methods for client
 	 */
-	public List<IBeacon> startScan() {
+	public void startScan() {
 		Log.v(TAG, "startScan");
 
 		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
 			Log.w(TAG, "startScan need API 18; return");
-			return null;
+			return;
 		}
 
 		try {
@@ -126,6 +128,5 @@ public class IBeaconMonitorService extends Service {
 			Log.w(TAG, e.toString());
 		}
 
-		return null;
 	}
 }
