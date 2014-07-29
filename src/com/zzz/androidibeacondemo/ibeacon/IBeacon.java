@@ -78,4 +78,28 @@ public class IBeacon {
 		}
 		return builder.toString();
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		IBeacon temp = (IBeacon) o;
+		return this.uuid.equals(temp.uuid) && this.major == temp.major
+				&& this.minor == temp.minor && this.txpower == temp.txpower;
+	}
+
+	@Override
+	public int hashCode() {
+		return uuid.hashCode();
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("uuid ").append(this.uuid).append("\n");
+		builder.append("major ").append(Integer.toHexString(this.major))
+				.append("\n");
+		builder.append("minor ").append(Integer.toHexString(this.minor))
+				.append("\n");
+		builder.append("txpower ").append(this.txpower).append("\n");
+		return builder.toString();
+	}
 }

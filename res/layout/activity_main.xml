@@ -9,7 +9,7 @@
     tools:context="com.zzz.androidibeacondemo.ui.MainActivity" >
 
     <TextView
-        android:id="@+id/textview_hello_world"
+        android:id="@+id/textview_state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
@@ -18,7 +18,13 @@
         android:id="@+id/button_start_scan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textview_hello_world"
+        android:layout_below="@id/textview_state"
         android:text="@string/start_scan" />
+
+    <TextView
+        android:id="@+id/textview_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_start_scan" />
 
 </RelativeLayout>
