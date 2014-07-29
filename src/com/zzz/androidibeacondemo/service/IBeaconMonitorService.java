@@ -86,18 +86,20 @@ public class IBeaconMonitorService extends Service {
 			Log.i(TAG, "rssi - " + rssi);
 			IBeacon ibeacon = new IBeacon();
 			ibeacon.readFromArray(scanRecord);
-			// add to hash set
-			ibeaconSet.add(ibeacon);
-			// update ui
-			Message msg = Message.obtain(null, MainActivity.MSG_SCAN_RESULT, 0,
-					0);
-			msg.obj = ibeaconSet;
-			try {
-				client.send(msg);
-			} catch (RemoteException e) {
-				e.printStackTrace();
-			}
+			if (!ibeacon.isEmpty()) {
+				// add to hash set
+				ibeaconSet.add(ibeacon);
+				// update ui
+				Message msg = Message.obtain(null,
+						MainActivity.MSG_SCAN_RESULT, 0, 0);
+				msg.obj = ibeaconSet;
+				try {
+					client.send(msg);
+				} catch (RemoteException e) {
+					e.printStackTrace();
+				}
 
+			}
 		}
 
 	};

@@ -79,6 +79,10 @@ public class IBeacon {
 		return builder.toString();
 	}
 
+	public boolean isEmpty() {
+		return uuid.isEmpty();
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		IBeacon temp = (IBeacon) o;
@@ -102,4 +106,5 @@ public class IBeacon {
 		builder.append("txpower ").append(this.txpower).append("\n");
 		return builder.toString();
 	}
+
 }
