@@ -23,7 +23,7 @@ import android.widget.TextView;
 
 import com.zzz.androidibeacondemo.R;
 import com.zzz.androidibeacondemo.ibeacon.IBeacon;
-import com.zzz.androidibeacondemo.service.IBeaconMonitorService;
+import com.zzz.androidibeacondemo.ibeacon.IBeaconMonitorService;
 
 /**
  * MainActivity

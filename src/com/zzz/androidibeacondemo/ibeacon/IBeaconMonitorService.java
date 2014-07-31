@@ -1,4 +1,4 @@
-package com.zzz.androidibeacondemo.service;
+package com.zzz.androidibeacondemo.ibeacon;
 
 import java.util.HashSet;
 
@@ -19,7 +19,6 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.util.Log;
 
-import com.zzz.androidibeacondemo.ibeacon.IBeacon;
 import com.zzz.androidibeacondemo.ui.MainActivity;
 
 /**

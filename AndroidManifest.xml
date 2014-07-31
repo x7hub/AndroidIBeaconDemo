@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name="com.zzz.androidibeacondemo.service.IBeaconMonitorService" >
+        <service android:name="com.zzz.androidibeacondemo.ibeacon.IBeaconMonitorService" >
         </service>
     </application>
 
