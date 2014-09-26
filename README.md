@@ -97,6 +97,32 @@ public IBeacon readFromArray(byte[] src) {
 }
 ```
 
+### 用PC发送iBeacon信号做测试
+
+启动蓝牙模块
+
+```shell
+sudo hciconfig hci0 up
+```
+
+设置iBeacon广播内容，注意符合iBeacon协议中规定的字段
+
+```shell
+sudo hcitool -i hci0 cmd 0x08 0x0008 1E 02 01 1A 1A FF 4C 00 02 15 00 11 22 33 44 55 66 77 88 99 AA BB CC DD EE FF 00 01 00 02 C5 00
+```
+
+开始广播(LE advertise)
+
+```shell
+sudo hciconfig hci0 leadv
+```
+
+停止广播
+
+```shell
+sudo hciconfig hci0 noleadv
+```
+
 ### 另外
 
 GitHub上[有一个工程](https://github.com/RadiusNetworks/android-ibeacon-service)是一个公司专门在Android上做的iBeacon的移植，但是由于不明原因被删除的公开的代码，不过在[其历史提交记录](https://github.com/RadiusNetworks/android-ibeacon-service/tree/800a1d1b24e1d5f13f4589412ce5c6bf3f7bc3f1)中还是可以看到删除前的代码，至于删除原因该公司没有说明，给出的咨询邮箱没有回复。
